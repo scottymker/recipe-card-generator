@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Card Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="no-print">
+            <h1>Recipe Card Generator</h1>
+            <p>Paste a recipe URL to create a printable 3x5" index card</p>
+        </header>
+
+        <div class="input-section no-print">
+            <input
+                type="url"
+                id="recipe-url"
+                placeholder="Paste recipe URL here (e.g., https://www.allrecipes.com/...)"
+            >
+            <button id="fetch-btn" onclick="fetchRecipe()">Get Recipe</button>
+        </div>
+
+        <div id="error-message" class="error no-print"></div>
+        <div id="loading" class="loading no-print">Fetching recipe...</div>
+
+        <div id="card-container" class="card-container">
+            <div id="recipe-card" class="recipe-card">
+                <div class="card-header">
+                    <h2 id="recipe-title">Recipe Title</h2>
+                </div>
+                <div class="card-body">
+                    <div class="ingredients-section">
+                        <h3>Ingredients</h3>
+                        <ul id="ingredients-list">
+                            <li>Ingredient 1</li>
+                            <li>Ingredient 2</li>
+                        </ul>
+                    </div>
+                    <div class="instructions-section">
+                        <h3>Instructions</h3>
+                        <ol id="instructions-list">
+                            <li>Step 1</li>
+                            <li>Step 2</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions no-print" id="actions" style="display: none;">
+            <button onclick="window.print()">Print Card</button>
+            <button onclick="resetCard()">Clear</button>
+        </div>
+
+        <footer class="no-print">
+            <p>Works with most recipe sites (AllRecipes, Food Network, Serious Eats, recipe blogs, etc.)</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
